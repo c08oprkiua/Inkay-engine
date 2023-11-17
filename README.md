@@ -1,3 +1,6 @@
+# Forker's note
+This project isn't very high on my current priority list, I just opened this fork ahead of time so that it is here when I eventually take a swing at it.
+
 # Inkay - Aroma patches for Pretendo
 
 [![Pretendo network logo](https://github.com/PretendoNetwork/website/raw/master/public/assets/images/opengraph/opengraph-image.png)](https://pretendo.network)
