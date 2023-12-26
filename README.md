@@ -16,8 +16,6 @@ I couldn't help but think there could/should be a better way for this to get don
 
 About that last bit: So, theoretically, the Wii U isn't constantly accessing certain URLs, namely the Miiverse discovery URL. The hypothesis is that two Miiverse revivals that use the same network (eg. both on Pretendo, or both on Nintendo Network), or in other words, only patch the one URL differently, don't necessitate a full system reboot to be switched, as long as they are not being actively accessed. So, if a user were to switch between these two, it will merely need a restart of the current application, not the entire system, making it MUCH more convenient for users swapping between Miiverse revivals. 
 
-Also, if you see a PR for this, I apologize, I misclicked a button or didn't know that something I did would cause a PR. This is NOT ready to be PRed, and I'm not even sure if I'll PR it once its done either.
-
 # Inkay - Aroma patches for Pretendo
 
 [![Pretendo network logo](https://github.com/PretendoNetwork/website/raw/master/public/assets/images/opengraph/opengraph-image.png)](https://pretendo.network)
