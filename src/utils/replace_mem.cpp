@@ -19,9 +19,22 @@
 #include <coreinit/memorymap.h>
 #include <algorithm>
 
+/**
+ * @brief 
+ * 
+ * @param start 
+ * @param size 
+ * @param original_val 
+ * @param original_val_sz 
+ * @param new_val 
+ * @param new_val_sz 
+ * @return true 
+ * @return false 
+ */
 bool replace(uint32_t start, uint32_t size, const char* original_val, size_t original_val_sz, const char* new_val, size_t new_val_sz) {
     for (uint32_t addr = start; addr < start + size - original_val_sz; addr++) {
         int ret = memcmp(original_val, (void*)addr, original_val_sz);
+        //Probably a check for false...?
         if (ret == 0) {
             DEBUG_FUNCTION_LINE("found str @%08x: %s", addr, (const char*)addr);
             KernelCopyData(OSEffectiveToPhysical(addr), OSEffectiveToPhysical((uint32_t)new_val), new_val_sz);
@@ -32,6 +45,14 @@ bool replace(uint32_t start, uint32_t size, const char* original_val, size_t ori
 
     return false;
 }
+
+/**
+ * @brief 
+ * 
+ * @param start 
+ * @param size 
+ * @param replacements 
+ */
 
 void replaceBulk(uint32_t start, uint32_t size, std::span<const replacement> replacements) {
     // work out the biggest input replacement
