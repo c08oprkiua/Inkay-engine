@@ -1,8 +1,4 @@
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5629fee (I honestly don't remember what all I've done for this commit)
 typedef struct URL_Patch
 {
     unsigned int address;
@@ -10,30 +6,12 @@ typedef struct URL_Patch
 } URL_Patch;
 
 
-<<<<<<< HEAD
-struct profile {
-    char name[15];
-
-    struct eshop {
-        char pushmore[80];
-
-    };
-
-    struct icons {
-
-    };
-
-
-
-    struct miiverse {
-        char discurl[38];
-=======
-class profile
+class Profile
 {
 public:
     //bitfield; used URLs are 1, otherwise 0
-    //Idea being it is faster to check this and know which to patch than to attempt
-    //patching all the URLs, which a profile may or may not seek to edit
+    //Idea being it is faster to check this to know which to patch when switching profiles
+    // than to attempt patching all the URLs, which a profile may or may not need to edit
     unsigned int usedfields; 
 
     char name[15]; //Idk 15 seemed like a good amount
@@ -78,24 +56,19 @@ public:
 
 
     struct miiverse {
-        //This is your "disc.olv.pretendo.cc/v1/endpoint" type URL
-        char discurl[38];
+        //Discovery +v1/endpoint URL
+        char discurl[39] = "disc.olv.pretendo.cc/v1/endpoint";
         //These are the color patches
->>>>>>> 5629fee (I honestly don't remember what all I've done for this commit)
         char wave[29];
         unsigned char highlight[16];
         unsigned char touch1[8];
         unsigned char touch2[8];
     };
-<<<<<<< HEAD
-};
-=======
     
-    
-    void CheckUsedFields(); //sets or updates usedfields
+    void ValidateUsedFields(); //manually validates usedfields
+    bool ProfileSizeCheck(); //Make sure all the values in the profile aren't too big
 
-    profile();
-    ~profile();
+    Profile(); //Probably alloc mem
+    ~Profile();
 };
 
->>>>>>> 5629fee (I honestly don't remember what all I've done for this commit)
