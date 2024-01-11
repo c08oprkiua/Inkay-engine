@@ -6,4 +6,4 @@
 std::vector<ProfileMeta> ProfileArray;
 
 bool InitializeProfileArray();
-bool LoadProfileFromStorage();
+bool LoadProfileFromStorage(ProfileMeta profile);

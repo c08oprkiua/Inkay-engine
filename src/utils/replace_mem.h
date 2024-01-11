@@ -22,7 +22,7 @@
 bool replace(uint32_t start, uint32_t size, const char* original_val, size_t original_val_sz, const char* new_val, size_t new_val_sz);
 
 /**
- * @brief struct for URL replacements(?)
+ * @brief struct for URL replacements
  * 
  * @param orig original URL
  * @param repl replacement URL
