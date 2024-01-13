@@ -4,7 +4,9 @@
 
 static const URL_Patch url_patches[] = {
     // eShop
-    {0xE2282550, "http://pushmore.wup.shop.pretendo.cc/pushmore/r/%s"},
+    //{0xE2282550, "http://pushmore.wup.shop.pretendo.cc/pushmore/r/%s"},
+    {0xE2282550, /* Pointer to char[80] pushmore here*/""},
+
     // not sure
     {0xE229A0A0, "http://npns-dev.c.app.pretendo.cc/bst.dat"},
     {0xE229A0D0, "http://npns-dev.c.app.pretendo.cc/bst2.dat"},
