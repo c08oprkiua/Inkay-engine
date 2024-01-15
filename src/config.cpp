@@ -41,13 +41,11 @@ void Config::Init() {
         else if (storageRes != WUPS_STORAGE_ERROR_SUCCESS) {
             DEBUG_FUNCTION_LINE("Failed to get bool %s (%d)", WUPS_GetStorageStatusStr(storageRes), storageRes);
         }
-
         // Close storage
         if (WUPS_CloseStorage() != WUPS_STORAGE_ERROR_SUCCESS) {
             DEBUG_FUNCTION_LINE("Failed to close storage");
         }
     }
-    
     uint64_t current_title_id = OSGetTitleID();
     uint64_t wiiu_menu_tid = _SYSGetSystemApplicationTitleId(SYSTEM_APP_ID_WII_U_MENU);
     Config::is_wiiu_menu = (current_title_id == wiiu_menu_tid);
@@ -72,16 +70,11 @@ static int32_t unregister_task_item_get_display_value(void *context, char *out_b
 
 static void unregister_task_item_pressed_cb(void *context, WUPSConfigButtons button) {
     if (!Config::unregister_task_item_pressed && Config::is_wiiu_menu && button == WUPS_CONFIG_BUTTON_A) {
-
         nn::act::Initialize();
         Initialize__Q2_2nn4bossFv();
-
-        for (uint8_t i = 1; i <= nn::act::GetNumOfAccounts(); i++)
-        {
-            if (nn::act::IsSlotOccupied(i) == true)
-            {
-                if (nn::act::IsNetworkAccountEx(i) == true)
-                {
+        for (uint8_t i = 1; i <= nn::act::GetNumOfAccounts(); i++){
+            if (nn::act::IsSlotOccupied(i) == true){
+                if (nn::act::IsNetworkAccountEx(i) == true){
                     nn::boss::Task task;
                     nn::act::PersistentId persistentId = nn::act::GetPersistentIdEx(i);
 
@@ -114,7 +107,7 @@ WUPS_GET_CONFIG() {
     }
 
     WUPSConfigHandle config;
-    WUPSConfig_CreateHandled(&config, "Inkay");
+    WUPSConfig_CreateHandled(&config, "Inkay Engine");
 
     WUPSConfigCategoryHandle patching_cat;
     WUPSConfig_AddCategoryByNameHandled(config, "Patching", &patching_cat);

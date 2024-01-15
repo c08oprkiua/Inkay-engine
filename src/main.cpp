@@ -47,13 +47,13 @@
     Mandatory plugin information.
     If not set correctly, the loader will refuse to use the plugin.
 **/
-WUPS_PLUGIN_NAME("Inkay");
-WUPS_PLUGIN_DESCRIPTION("Pretendo Network Patcher");
-WUPS_PLUGIN_VERSION("v2.3");
-WUPS_PLUGIN_AUTHOR("Pretendo contributors");
+WUPS_PLUGIN_NAME("Inkay Engine");
+WUPS_PLUGIN_DESCRIPTION("Network URL Patcher");
+WUPS_PLUGIN_VERSION("v0.1");
+WUPS_PLUGIN_AUTHOR("Pretendo contributors, c08oprkiua, TraceEntertains");
 WUPS_PLUGIN_LICENSE("ISC");
 
-WUPS_USE_STORAGE("inkay");
+WUPS_USE_STORAGE("inkay_engine");
 WUPS_USE_WUT_DEVOPTAB();
 
 #include <kernel/kernel.h>
@@ -143,6 +143,7 @@ INITIALIZE_PLUGIN() {
         install_matchmaking_patches();
     }
 }
+
 DEINITIALIZE_PLUGIN() {
     remove_matchmaking_patches();
 

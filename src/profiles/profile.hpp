@@ -1,25 +1,37 @@
 #include "src/patches/url_structs.hpp"
 
-class Profile
-{
+#include "stockprofile.hpp"
+#include "defaultprofile.hpp"
+
+class Profile {
 public:
+    
+    ProfileMeta metadata = pn_meta;
 
-    ProfileMeta metadata;
+    eShop eshop = pn_eshop;
 
-    eShop eshop;
+    NPNS npns = pn_npns;
 
-    NPNS npns;
+    SpotPass boss = pn_boss;
 
-    SpotPass boss;
+    IconDatabase icdb = pn_icdb;
 
-    IconDatabase icdb;
+    Olive miiverse = pn_juxt;
 
-    Olive miiverse;
+    //manually (re)builds usedfields
+    void GenerateUsedFields(); 
 
-    void ValidateUsedFields(); //manually validates usedfields
-    bool ProfileSizeCheck(); //Make sure all the values in the profile aren't too big
+    //Set URLs to the stock Nintendo URLs (bascially a manual reset)
+    void SetToStock(); 
+    /**
+     *  Set URLs back to the default profile, Pretendo Network. 
+     * 
+     * TODO: Have a stored profile able to be set as default
+     */
+    void SetToDefault();
 
-    Profile(ProfileMeta meta); //Probably alloc mem
+    //Load profile from storage, probably alloc mem
+    Profile(ProfileMeta meta); 
     ~Profile();
 };
 
