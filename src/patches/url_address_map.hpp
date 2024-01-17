@@ -1,11 +1,11 @@
 
-#include "src/profiles/profile.hpp"
+#include "../src/profiles/profile.hpp"
 #include "src/patches/url_structs.hpp"
 
 static const URL_Patch url_patches[] = {
     // eShop
     //{0xE2282550, "http://pushmore.wup.shop.pretendo.cc/pushmore/r/%s"},
-    {0xE2282550, /* Pointer to char[80] pushmore here*/""},
+    {0xE2282550, *eShop.pushmore = * },
 
     // not sure
     {0xE229A0A0, "http://npns-dev.c.app.pretendo.cc/bst.dat"},

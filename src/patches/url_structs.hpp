@@ -18,7 +18,7 @@ struct ProfileMeta {
     */
     uint32_t usedfields;
 
-    char profile_name[15] = "Stock"; //Idk 15 seemed like a good amount. Could be bigger in the future, idrc
+    char *profile_name = "Stock";
 };
 
 //These are mostly just structs for organizing, not because they need to be structs
@@ -26,17 +26,26 @@ struct ProfileMeta {
 
 struct eShop {
     char pushmore[80]; // 1 << 0
+    URL_Patch pushmore_addr = {0xE2282550, *pushmore};
     //Tagaya is the eshop applet
     char tagaya[80]; // 1 << 1
+    URL_Patch tagaya_pat = {0xE2281964, *tagaya};
     char tagaya_latest[80]; // 1 << 2
+    URL_Patch tagaya_latest_pat = {0xE22819B4, *tagaya_latest};
     //Pushmo is related to title installs
     char pushmo_d[80]; // 1 << 3
+    URL_Patch pushmo_d_pat = {0xE2282584, *pushmo_d};
     char pushmo_c[80]; // 1 << 4
+    URL_Patch pushmo_c_pat {0xE22825B8, *pushmo_c};
     //
     char ecs_wup[80]; //Exists twice in RAM, does not need to be repeated as a char value. 1 << 5
+    URL_Patch ecs_wup_pat1 = {0xE2282DB4, *ecs_wup};
+    URL_Patch ecs_wup_pat2 = {0xE22830A0, *ecs_wup};
     char nus_wup[80]; // 1 << 6
+    URL_Patch nus_wup_pat = {0xE22830E0, *nus_wup};
     //c
     char ecsc1[80]; // 1 << 7
+
     char ecsc2[80]; // 1 << 8 
     char ias[80]; // 1 << 9
     char cas[80]; // 1 << 10
